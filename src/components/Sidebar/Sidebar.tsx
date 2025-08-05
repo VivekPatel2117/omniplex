@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { selectAuthState } from "@/store/authSlice";
 import { useDisclosure } from "@nextui-org/modal";
-
+import CheckoutButton from "../StripeCheckout/StripeCheckout";
 import Logo from "../../../public/Logo.svg";
 import Menu from "../../../public/svgs/Menu.svg";
 import Pen from "../../../public/svgs/Pen.svg";
@@ -27,6 +27,8 @@ import Plugin from "../../../public/svgs/sidebar/Plugin_Active.svg";
 import PluginInactive from "../../../public/svgs/sidebar/Plugin_Inactive.svg";
 import User from "../../../public/svgs/sidebar/User.svg";
 import Collapse from "../../../public/svgs/sidebar/Collapse.svg";
+// Update the import path to the correct location of your store file
+import { RootState } from "../../store/store";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -102,12 +104,22 @@ const Sidebar = () => {
   const handleNewChat = () => {
     router.push("/");
   };
+const isProUser = useSelector((state: RootState) => state.user.pro_user);
 
   return (
     <>
       <div className={styles.header}>
         <div onClick={toggleSidebar} className={styles.menu}>
           <Image priority={true} src={Menu} alt="Menu" width={24} height={24} />
+        </div>
+        <div>
+          <h1 className={styles.menu}>
+            {isProUser ? (
+              <h1 className={styles.title}>Omniplex</h1>
+            ) : (
+            <CheckoutButton/>
+            )}
+          </h1>
         </div>
         <div
           className={styles.titleButton}

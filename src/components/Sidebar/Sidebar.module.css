@@ -10,6 +10,9 @@
   z-index: 10;
   transition: all 1s;
 }
+.title{
+  margin-top: 6px;
+}
 .opening {
   animation: slideInFromLeft 300ms ease-in-out forwards;
 }

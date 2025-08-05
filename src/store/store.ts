@@ -13,7 +13,7 @@ import storage from "redux-persist/lib/storage";
 import chatReducer from "./chatSlice";
 import authReducer from "./authSlice";
 import aiReducer from "./aiSlice";
-
+import userReducer from "./userSlice";
 const persistConfig = {
   key: "root",
   version: 1,
@@ -25,6 +25,7 @@ const rootReducer = combineReducers({
   chat: chatReducer,
   auth: authReducer,
   ai: aiReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
