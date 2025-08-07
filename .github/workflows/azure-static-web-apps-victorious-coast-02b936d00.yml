@@ -44,7 +44,7 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.azure_static_web_apps_api_token }}
           action: "upload"        
-          app_location: "/"             # Root of your Next.js app
+          app_location: "src"             # Root of your Next.js app
           output_location: ".next"      # Default Next.js build output
           api_location: ""              # Leave empty if not using Azure Functions
 
