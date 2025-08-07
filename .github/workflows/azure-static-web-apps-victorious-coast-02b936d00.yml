@@ -23,10 +23,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build the app
-        run: npm run build
+        run: yarn build
 
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
